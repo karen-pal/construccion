@@ -87,17 +87,17 @@
                        inline: 'center'
                    }
             );
-            document.querySelectorAll('.button').forEach(e => e.remove());
             if (clicks === toDisplay.length-1 && toDisplay === preguntas){
+                [...document.getElementsByTagName('button')].forEach(e => e.remove());
                 let arrow = document.createElement("button")
-                arrow.classname = "button";
                 arrow.innerHTML = "->";
                 arrow.onclick = () => toDisplay = delArte;
                 clicks=0;
                 document.body.appendChild(arrow);
             } else if (clicks === toDisplay.length-1 && toDisplay === delArte){
+                [...document.getElementsByTagName('button')].forEach(e => e.remove());
                 let arrow = document.createElement("button")
-                arrow.classname = "->"
+                arrow.innerHTML = "->"
                 arrow.onclick = () => toDisplay = preguntas;
                 clicks=0;
                 document.body.appendChild(arrow);
