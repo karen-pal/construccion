@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Karen Palacio</title>
+      <style>
+        html{ 
+            height: 100%;
+        }
+        body {
+          min-height: 100%;
+          font-family: 'Roboto', sans-serif;
+          text-align: center;
+
+        }
+        #preguntas {
+          text-align: center;
+          overflow-wrap: break-word;
+          hyphens: manual;
+          word-wrap: break-word;
+            color:#0b4999;
+          border: 1px solid black;
+
+          font-size: 3.3vw;
+        text-decoration: underline  blue;   /* Subrayado rojo ondulado */
+        cursor: pointer;
+          font-size: 4.3vw;
+
+        }
+        #preguntas:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+        img{
+       position:fixed;
+        right:0;
+        bottom:0;
+        margin:0;
+        padding:0;
+        }
+        img {
+            float:top;
+       z-index:0;
+        background-image:url(tap.png);
+        }
+      </style>
+  </head>
+  <body>
+  <div id="preguntas"></div>
+    <script>
+        let preguntas = [
+            "¿Cómo hacer arte digital y computacional comprometido con la idea de construcción social de sentidos?",
+            "¿Cómo hacer arte digital y computacional comprometido con la idea de construcción social de sentidos en una sociedad con acceso desigual a información tecnológica y poder de aprehensión de la tecnología?",
+            "¿Cómo hacer arte digital y computacional comprometido con la idea de construcción social de sentidos en una sociedad con acceso desigual a información tecnológica y poder de aprehensión de la tecnología en una provincia “del interior”, sin mercado ni vías de distribución y puesta en circulación de arte digital?",
+            "¿Cómo hacer arte digital y computacional comprometido con la idea de construcción social de sentidos en una sociedad con acceso desigual a información tecnológica y poder de aprehensión de la tecnología en una provincia “del interior”, sin mercado ni vias de distribución y puesta en circulación de arte digital, siendo mujer en tecnología, donde la brecha tecnológica aumenta?",
+
+        ]
+        let delArte = [
+            "¿Cómo hacer arte digital y computacional abierto y movilizante, que hable nuestros lenguajes y que trate nuestros temas?",
+            "¿Cuáles son nuestros lenguajes? ¿Cuáles son nuestros temas? ¿Qué hay más allá de las desigualdades y brechas?",
+            "Producir arte digital ¿Como acto comunicativo (¿entre quiénes?)? ¿Como acto de denuncia (¿de qué y ante quién?)?",
+            "Producir arte digital ¿Como acto de proposición de signos producidos con intención (¿qué intención?)? ¿Como código a descifrar (¿para qué?)?",
+            "Producir arte digital ¿Como resultado de procesos sociales de relacionarse desde el cuerpo y mente con conceptos, ideas, normativas (¿de qué cuerpos, de qué mentes?)? ¿Como artefacto que posibilite la comunicación y la formación de saberes colectivos (¿de qué grupos?)?",
+            "Ante la falta de espacios con continuidad que posibilite experimentación real artística en Córdoba, ¿Cómo poner en circulación algo que proponga realmente?",
+        ]
+        let clicks = 0;
+        let toDisplay = preguntas;
+        displayElem();
+        function displayElem(){
+            let text = toDisplay[clicks]
+            let h2Elem = document.createElement("h2");
+            h2Elem.innerHTML = toDisplay[clicks];
+            h2Elem.id = "preguntas"
+
+            document.getElementById("preguntas").replaceWith(h2Elem);
+            clicks = (clicks + 1) % toDisplay.length;
+
+            document.getElementById("preguntas").scrollIntoView(
+                {
+                       behavior: 'auto',
+                       block: 'end',
+                       inline: 'center'
+                   }
+            );
+            document.querySelectorAll('.button').forEach(e => e.remove());
+            if (clicks === toDisplay.length-1 && toDisplay === preguntas){
+                let arrow = document.createElement("button")
+                arrow.classname = "button";
+                arrow.innerHTML = "->";
+                arrow.onclick = () => toDisplay = delArte;
+                clicks=0;
+                document.body.appendChild(arrow);
+            } else if (clicks === toDisplay.length-1 && toDisplay === delArte){
+                let arrow = document.createElement("button")
+                arrow.classname = "->"
+                arrow.onclick = () => toDisplay = preguntas;
+                clicks=0;
+                document.body.appendChild(arrow);
+            }
+        }
+        document.body.addEventListener('click', function() { displayElem(); });
+
+    </script>
+  </body>
+</html>
