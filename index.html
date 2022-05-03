@@ -61,17 +61,21 @@
         ]
         let delArte = [
             "¿Cómo hacer arte digital y computacional abierto y movilizante, que hable nuestros lenguajes y que trate nuestros temas?",
-            "¿Cuáles son nuestros lenguajes? ¿Cuáles son nuestros temas? ¿Qué hay más allá de las desigualdades y brechas?",
-            "Producir arte digital ¿Como acto comunicativo (¿entre quiénes?)? ¿Como acto de denuncia (¿de qué y ante quién?)?",
-            "Producir arte digital ¿Como acto de proposición de signos producidos con intención (¿qué intención?)? ¿Como código a descifrar (¿para qué?)?",
-            "Producir arte digital ¿Como resultado de procesos sociales de relacionarse desde el cuerpo y mente con conceptos, ideas, normativas (¿de qué cuerpos, de qué mentes?)? ¿Como artefacto que posibilite la comunicación y la formación de saberes colectivos (¿de qué grupos?)?",
-            "Ante la falta de espacios con continuidad que posibilite experimentación real artística en Córdoba, ¿cómo poner en circulación algo que proponga?",
+            "¿Cuáles son nuestros lenguajes?<br> ¿Cuáles son nuestros temas?<br> ¿Qué hay más allá de las desigualdades y brechas?",
+            "Producir arte digital <br>¿Como acto comunicativo (¿entre quiénes?)?<br> ¿Como acto de denuncia (¿de qué y ante quién?)?",
+            "Producir arte digital <br>¿Como acto de proposición de signos producidos con intención (¿qué intención?)?<br> ¿Como código a descifrar (¿para qué?)?",
+            "Producir arte digital <br>¿Como resultado de procesos sociales de relacionarse desde el cuerpo y mente con conceptos, ideas, normativas (¿de qué cuerpos, de qué mentes?)? <br>¿Como artefacto que posibilite la comunicación y la formación de saberes colectivos (¿de qué grupos?)?",
+            "Ante la falta de espacios con continuidad que posibilite experimentación real artística en Córdoba,<br> ¿cómo poner en circulación algo que proponga?",
         ]
 
         let clicks = 0;
         let toDisplay = preguntas;
         displayElem();
         function displayElem(){
+            if (clicks === 0){
+
+                [...document.getElementsByTagName('button')].forEach(e => e.remove());
+            }
             let text = toDisplay[clicks]
             let h2Elem = document.createElement("h2");
             h2Elem.innerHTML = toDisplay[clicks];
