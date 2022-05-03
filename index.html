@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Karen Palacio</title>
       <style>
@@ -11,6 +12,10 @@
         }
         body {
           min-height: 100%;
+            margin:0px;
+          width:100vw;
+          height:100vh;
+          overflow:auto;
           font-family: 'Roboto', sans-serif;
           text-align: center;
 
@@ -34,21 +39,37 @@
   display: inline-block;
   width: 100%;
 }
-        img{
+        h1,button{
        position:fixed;
-        right:0;
-        bottom:0;
+        right:50%;
+        top:0;
         margin:0;
         padding:0;
         }
-        img {
+        button {
             float:top;
        z-index:0;
-        background-image:url(tap.png);
+        background-color:red;
+        background-image: linear-gradient(red,mistyrose);
+
+        font-size: 3.3vw;
+        cursor: pointer;
+        border:none;
+
         }
+        button:after{
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
+	height: 50%;
+	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
       </style>
   </head>
   <body>
+  <h1>⟳</h1>
   <div id="preguntas"></div>
     <script>
 
@@ -94,14 +115,14 @@
             if (clicks === toDisplay.length-1 && toDisplay === preguntas){
                 [...document.getElementsByTagName('button')].forEach(e => e.remove());
                 let arrow = document.createElement("button")
-                arrow.innerHTML = "->";
+                arrow.innerHTML = "➔";
                 arrow.onclick = () => toDisplay = delArte;
                 clicks=0;
                 document.body.appendChild(arrow);
             } else if (clicks === toDisplay.length-1 && toDisplay === delArte){
                 [...document.getElementsByTagName('button')].forEach(e => e.remove());
                 let arrow = document.createElement("button")
-                arrow.innerHTML = "->"
+                arrow.innerHTML = "←"
                 arrow.onclick = () => toDisplay = preguntas;
                 clicks=0;
                 document.body.appendChild(arrow);
