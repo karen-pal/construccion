@@ -9,6 +9,7 @@
       <style>
         html{ 
             height: 100%;
+            background:floralwhite;
         }
         body {
           min-height: 100%;
@@ -114,14 +115,14 @@
             if (clicks === toDisplay.length-1 && toDisplay === preguntas){
                 [...document.getElementsByTagName('button')].forEach(e => e.remove());
                 let arrow = document.createElement("button")
-                arrow.innerHTML = "➔";
+                arrow.innerHTML = "⇒";
                 arrow.onclick = () => toDisplay = delArte;
                 clicks=0;
                 document.body.appendChild(arrow);
             } else if (clicks === toDisplay.length-1 && toDisplay === delArte){
                 [...document.getElementsByTagName('button')].forEach(e => e.remove());
                 let arrow = document.createElement("button")
-                arrow.innerHTML = "←"
+                arrow.innerHTML = "⇐"
                 arrow.onclick = () => toDisplay = preguntas;
                 clicks=0;
                 document.body.appendChild(arrow);
